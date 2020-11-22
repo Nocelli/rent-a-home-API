@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 
-mongoose.connect('mongoose://localhost/uhuu_api', { useMongoClient: true })
+const connectionString = `${process.env.DATABASE_URL}`
+
+mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 mongoose.Promise = global.Promise
 
 module.exports = mongoose
