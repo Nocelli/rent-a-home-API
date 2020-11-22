@@ -1,37 +1,37 @@
 const mongoose = require('../database')
 
 const ListingSchema = new mongoose.Schema({
-    Title: {
+    title: {
         type: String,
         minlength: [2, 'O título do anúncio é muito curto'],
         maxlength: [30, 'O título do anúncio é muito longo'],
         required: [true, 'O título do anúncio é obrigatório']
     },
-    Description: {
+    description: {
         type: String,
         minlength: [2, 'A descrição do anúncio é muito curta'],
         maxlength: [300, 'A descrição do anúncio é muito longa'],
         required: [true, 'A descrição do anúncio é obrigatória']
     },
-    Price: {
+    price: {
         type: Number,
-        required: true
+        required: [true, 'O preço do anúncio é obrigatório']
     },
-    Available: {
+    available: {
         type: Date,
-        required: true,
+        required: [true, 'A disponibilidade do anúncio é obrigatória'],
         default: Date.now
     },
-    Type: {
-        Type: String,
-        required: true,
+    listingType: {
+        type: String,
+        required: [true, 'O tipo do anúncio é obrigatório'],
     },
-    User: {
-        Type: mongoose.Schema.Types.ObjectId,
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true,
+        require: true,
     },
-    Whatsapp: {
+    whatsapp: {
         type: String,
         require: false
     },
