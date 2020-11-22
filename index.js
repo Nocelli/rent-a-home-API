@@ -1,10 +1,5 @@
+require('dotenv').config()
 const app = require('./src/app')
-const dotenv = require('dotenv')
-
-
-dotenv.config({
-    path: './.env'
-})
 
 app.listen(process.env.PORT, err => {
     if(err)
